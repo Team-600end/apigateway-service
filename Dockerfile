@@ -9,5 +9,5 @@ RUN ./gradlew bootJar
 FROM openjdk:11-slim
 COPY --from=builder build/libs/*.jar apigateway-service.jar
 VOLUME /tmp
-EXPOSE 8888
+EXPOSE 8000
 ENTRYPOINT ["java", "-jar", "apigateway-service.jar"]

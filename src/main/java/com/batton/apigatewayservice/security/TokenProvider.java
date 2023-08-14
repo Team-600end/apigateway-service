@@ -12,7 +12,6 @@ import java.util.UUID;
 
 @Slf4j
 @Component
-@RefreshScope
 public class TokenProvider {
     @Value("${token.access-expiration-time}")
     private long ACCESS_TOKEN_EXPIRATION_TIME;

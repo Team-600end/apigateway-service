@@ -128,7 +128,7 @@ spring:
             - Method=GET, POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/api/(?<segment>.*), /$\{segment}
+            - RewritePath=/member-service/(?<segment>.*), /$\{segment}
 
         - id: project-service
           uri: http://10.0.18.110:8082
@@ -137,7 +137,7 @@ spring:
             - Method=GET, POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/api/(?<segment>.*), /$\{segment}
+            - RewritePath=/project-service/(?<segment>.*), /$\{segment}
 
         - id: notice-service
           uri: http://10.0.19.48:8083
@@ -146,10 +146,10 @@ spring:
             - Method=GET, POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/api/(?<segment>.*), /$\{segment}
+            - RewritePath=/notice-service/(?<segment>.*), /$\{segment}
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: prometheus, metrics, info, httptrace, beans, refresh, health, busrefresh

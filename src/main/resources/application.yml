@@ -147,3 +147,9 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

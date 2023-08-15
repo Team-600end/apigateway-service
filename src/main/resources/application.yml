@@ -120,3 +120,30 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
+##################################################################  prometheus
+        - id: member-service
+          uri: http://10.0.19.219:8081
+          predicates:
+            - Path=/member-service/actuator/**
+            - Method=GET, POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+        - id: project-service
+          uri: http://10.0.18.110:8082
+          predicates:
+            - Path=/project-service/actuator/**
+            - Method=GET, POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+        - id: notice-service
+          uri: http://10.0.19.48:8083
+          predicates:
+            - Path=/notice-service/actuator/**
+            - Method=GET, POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/(?<segment>.*), /$\{segment}

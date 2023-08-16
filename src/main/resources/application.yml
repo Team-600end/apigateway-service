@@ -61,6 +61,24 @@ spring:
         - id: member-service
           uri: http://10.0.19.219:8081
           predicates:
+            - Path=/api/auth/kakao/{access-token}
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+        - id: member-service
+          uri: http://10.0.19.219:8081
+          predicates:
+            - Path=/api/auth/kakao/key
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+        - id: member-service
+          uri: http://10.0.19.219:8081
+          predicates:
             - Path=/api/members/**
           filters:
             - RemoveRequestHeader=Cookie

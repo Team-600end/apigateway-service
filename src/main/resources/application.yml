@@ -13,8 +13,8 @@ eureka:
 
 token:
   secret: GachonUniversity2023KAKAO2023ENTERPRISE2023ACADEMY2023VER02TheBestTeam600END2023FORRELEASENOTESYSTEM2023BATTONPROJECT97X19VACATIONLETSGO
-  access-expiration-time: 1800000
-  refresh-expiration-time: 18000000
+  access-expiration-time: 3600000
+  refresh-expiration-time: 43200000
 
 spring:
   application:
